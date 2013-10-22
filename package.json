@@ -6,8 +6,10 @@
   "scripts": {
     "test": "grunt test"
   },
-  "repository": "",
-  "keywords": [
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CocktailJS/cocktail-trait-eventable"
+  },  "keywords": [
     "eventable",
     "event",
     "trait",
