@@ -63,3 +63,23 @@ obj.on('firing', function(){ console.log('Event Fired!'); });
 obj.doSomethingAndFireEvent();
 ````
 
+### API
+
+The follwing methods will be publicly available on the host class:
+
+- `addListener(eventName, handler)`: Adds a listener to the end of the listeners array for the specified event.
+    - **eventName**: {String} the event name to be listened to.
+    - **handler**: {Function} the event handler.
+- `emit(eventName, arg1, arg2, ..., argN)`: Execute each of the listeners in order with the supplied arguments.
+    - **eventName**: {String} the event name to be listened to.
+    - **arg1..N**: {Any} arguments to be passed as parameters in the event handler.
+- `on(eventName, handler)`: Idem `addListener` method.
+- `once(eventName, handler)`: Adds a one time event listener.
+    - **eventName**: {String} the event name to be listened to.
+    - **handler**: {Function} the event handler.
+- `removeListener(eventName, handler)`: Removes the given handler for the event.
+    - **eventName**: {String} the event name.
+    - **handler**: {Function} the event handler.
+- `removeAllListeners(eventName)`: Remove all listeners for the given event.
+    - **eventName**: {String} the event name.
+
