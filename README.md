@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/CocktailJS/cocktail-trait-eventable.png?branch=master)](https://travis-ci.org/CocktailJS/cocktail-trait-eventable)
+
 # Eventable
 ## A [CocktailJS](http://cocktailjs.github.io) Trait Extension
 
