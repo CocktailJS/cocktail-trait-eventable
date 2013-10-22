@@ -65,7 +65,7 @@ obj.doSomethingAndFireEvent();
 
 ### API
 
-The follwing methods will be publicly available on the host class:
+The following methods will be publicly available on the host class:
 
 - `addListener(eventName, handler)`: Adds a listener to the end of the listeners array for the specified event.
     - **eventName**: {String} the event name to be listened to.
