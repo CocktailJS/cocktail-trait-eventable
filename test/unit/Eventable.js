@@ -4,7 +4,7 @@ var chai = require("chai"),
     sinon = require("sinon"),
     sinonChai = require("sinon-chai"),
     expect = chai.expect,
-    Cocktail = require('Cocktail'),
+    cocktail = require('cocktail'),
     Eventable = require('../../lib/Eventable'),
     EventEmitter = require('events').EventEmitter;
 
@@ -20,7 +20,7 @@ describe('Eventable Trait Unit Test', function(){
         removeAllSpy   = sinon.spy(emitter, 'removeAllListeners'),
         removeSpy      = sinon.spy(emitter, 'removeListener');
 
-    EventedClass = Cocktail.mix({
+    EventedClass = cocktail.mix({
         '@as'     : 'class',
         '@traits' : [Eventable],
 
