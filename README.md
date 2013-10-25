@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/CocktailJS/cocktail-trait-eventable.png?branch=master)](https://travis-ci.org/CocktailJS/cocktail-trait-eventable)
-[![NPM version](https://badge.fury.io/js/cocktail.png)](http://badge.fury.io/js/cocktail-trait-eventable)
+[![NPM version](https://badge.fury.io/js/cocktail-trait-eventable.png)](http://badge.fury.io/js/cocktail-trait-eventable)
 
 # cocktail-trait-eventable
 ## A [CocktailJS](http://cocktailjs.github.io) Trait Extension
