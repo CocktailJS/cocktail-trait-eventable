@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/CocktailJS/cocktail-trait-eventable.png?branch=master)](https://travis-ci.org/CocktailJS/cocktail-trait-eventable)
 
-# Eventable
+# cocktail-trait-eventable
 ## A [CocktailJS](http://cocktailjs.github.io) Trait Extension
 
 A trait to use an Emitter as a delegate.
@@ -22,12 +22,12 @@ A `getEmitter` method is required as a **glue code** for this trait.
 MyClass.js
 
 ````javascript
-var Cocktail     = require('Cocktail'),
-    Eventable    = require('Eventable'),
+var cocktail     = require('cocktail'),
+    Eventable    = require('cocktail-trait-eventable'),
     EventEmitter = require('events').EventEmitter;
 
 Cocktail.mix({
-    '@exports': module
+    '@exports': module,
     '@as'     : 'class',
 
     '@traits' : [Eventable],

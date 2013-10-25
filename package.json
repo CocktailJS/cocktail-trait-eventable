@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "cocktail": "~0.4.3"
+    "cocktail": "~0.4.5"
   },
   "devDependencies": {
     "grunt-simple-mocha": "~0.4.0",
