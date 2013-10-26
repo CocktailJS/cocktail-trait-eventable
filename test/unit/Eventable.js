@@ -131,17 +131,19 @@ describe('Eventable Trait Unit Test', function(){
 
         });
 
-        it('should honor scope parameter in options `addListener({eventName: handler, scope: otherScope})`', function(){
+        it('should bind scope to event handler `addListener({eventName: handler, scope: otherScope})`', function(){
             var eventName = 'name',
                 handler   = function (){},
+                scope     = { scopeVar: 1 },
                 params    = {},
-                scope     = {someVar: 1};
+                bindSpy   = sinon.spy(handler, "bind");
 
             params[eventName] = handler;
             params.scope = scope;
 
             sut.addListener(params);
-            expect(addListenerSpy).to.be.calledWith(eventName, handler);
+            
+            expect(bindSpy).to.be.calledWith(scope);
             expect(addListenerSpy).not.to.be.calledWith('scope', scope);
         });
 
