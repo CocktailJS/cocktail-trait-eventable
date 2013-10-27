@@ -9,6 +9,7 @@ A trait to use an Emitter as a delegate.
 ### Install
 
 ````bash
+npm install cocktail --save
 npm install cocktail-trait-eventable --save
 ````
 
@@ -27,7 +28,7 @@ var cocktail     = require('cocktail'),
     Eventable    = require('cocktail-trait-eventable'),
     EventEmitter = require('events').EventEmitter;
 
-Cocktail.mix({
+cocktail.mix({
     '@exports': module,
     '@as'     : 'class',
 
