@@ -23,14 +23,8 @@ describe('Eventable Trait Unit Test', function(){
     EventedClass = cocktail.mix({
         '@as'     : 'class',
         '@traits' : [Eventable],
-
-        _emitter  : undefined, 
-
-        getEmitter : function() {
-            if (!this._emitter) {
-                this._emitter = emitter;
-            }
-            return this._emitter;
+        '@properties' : {
+            emitter: emitter
         }
     });
 
@@ -149,4 +143,83 @@ describe('Eventable Trait Unit Test', function(){
 
     });
 
+    describe('Eventable `on` added as a Trait with overriden parameters', function(){
+        var sut = new EventedClass();
+
+        it('should accept `on({eventName: handlerFn})` and call `emitter.on(\'eventName\', handlerFn)`', function(){
+            var eventName = 'name',
+                handler   = function (){},
+                params    = {};
+
+            params[eventName] = handler;
+
+            sut.on(params);
+            expect(onSpy).to.be.calledWith(eventName, handler);
+
+        });
+
+        it('should accept `on({eventName: handlerFn, another: anotherHandlerFn})` ', function(){
+            var eventName = 'name',
+                another   = 'another',
+                handler   = function (){},
+                params    = {};
+
+            params[eventName] = handler;
+            params[another] = handler;
+
+            sut.on(params);
+            expect(onSpy).to.be.calledWith(eventName, handler);
+            expect(onSpy).to.be.calledWith(another, handler);
+
+        });
+
+        it('should bind scope to event handler `on({eventName: handler, scope: otherScope})`', function(){
+            var eventName = 'name',
+                handler   = function (){},
+                scope     = { scopeVar: 1 },
+                params    = {},
+                bindSpy   = sinon.spy(handler, "bind");
+
+            params[eventName] = handler;
+            params.scope = scope;
+
+            sut.on(params);
+            
+            expect(bindSpy).to.be.calledWith(scope);
+            expect(addListenerSpy).not.to.be.calledWith('scope', scope);
+        });
+
+    });
+
+    describe('Eventable `removeListener` added as a Trait with overriden parameters', function(){
+        var sut = new EventedClass();
+
+        it('should accept `removeListener({eventName: handlerFn})` and call `emitter.removeListener(\'eventName\', handlerFn)`', function(){
+            var eventName = 'name',
+                handler   = function (){},
+                params    = {};
+
+            params[eventName] = handler;
+
+            sut.removeListener(params);
+            expect(removeSpy).to.be.calledWith(eventName, handler);
+
+        });
+
+        it('should accept `removeListener({eventName: handlerFn, another: anotherHandlerFn})` ', function(){
+            var eventName = 'name',
+                another   = 'another',
+                handler   = function (){},
+                params    = {};
+
+            params[eventName] = handler;
+            params[another] = handler;
+
+            sut.removeListener(params);
+            expect(removeSpy).to.be.calledWith(eventName, handler);
+            expect(removeSpy).to.be.calledWith(another, handler);
+
+        });
+
+    });
 });
