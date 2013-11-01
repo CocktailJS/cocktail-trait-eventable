@@ -79,7 +79,7 @@ The following methods will be publicly available on the host class:
     myObj.addListener('event', function(){/*handler*/});
 ````
 
-`addListener(options)`: Adds a listener to the end of the listeners array for the specified event.
+- `addListener(options)`: Adds a listener to the end of the listeners array for the specified event.
     - **options**: {Object} an object containing value-pairs of event name and handler and an optional scope.
 
 ````javascript
