@@ -70,6 +70,26 @@ describe('Eventable Trait Integration Test', function(){
             expect(emitter.listeners('event')).to.have.length(0);
         });
 
+        it('should not add any event if the config object is {}', function(){
+            var oneEvent = {};
+
+            sut.on(oneEvent);
+            expect(emitter.listeners()).to.have.length(0);
+        });
+
+        it('should not add any event if the config object has not its own properties', function(){
+            var OneEvent = function(){},
+                oneEvent;
+
+            OneEvent.prototype.eventName = "something";
+
+            oneEvent = new OneEvent();
+
+            sut.on(oneEvent);
+            expect(emitter.listeners()).to.have.length(0);
+        });
+
+
     });
 
 
