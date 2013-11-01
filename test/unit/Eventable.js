@@ -191,6 +191,54 @@ describe('Eventable Trait Unit Test', function(){
 
     });
 
+    describe('Eventable `once` added as a Trait with overriden parameters', function(){
+        var sut = new EventedClass();
+
+        it('should accept `once({eventName: handlerFn})` and call `emitter.once(\'eventName\', handlerFn)`', function(){
+            var eventName = 'name',
+                handler   = function (){},
+                params    = {};
+
+            params[eventName] = handler;
+
+            sut.once(params);
+            expect(onceSpy).to.be.calledWith(eventName, handler);
+
+        });
+
+        it('should accept `once({eventName: handlerFn, another: anotherHandlerFn})` ', function(){
+            var eventName = 'name',
+                another   = 'another',
+                handler   = function (){},
+                params    = {};
+
+            params[eventName] = handler;
+            params[another] = handler;
+
+            sut.once(params);
+            expect(onceSpy).to.be.calledWith(eventName, handler);
+            expect(onceSpy).to.be.calledWith(another, handler);
+
+        });
+
+        it('should bind scope to event handler `once({eventName: handler, scope: otherScope})`', function(){
+            var eventName = 'name',
+                handler   = function (){},
+                scope     = { scopeVar: 1 },
+                params    = {},
+                bindSpy   = sinon.spy(handler, "bind");
+
+            params[eventName] = handler;
+            params.scope = scope;
+
+            sut.once(params);
+            
+            expect(bindSpy).to.be.calledWith(scope);
+            expect(addListenerSpy).not.to.be.calledWith('scope', scope);
+        });
+
+    });
+
     describe('Eventable `removeListener` added as a Trait with overriden parameters', function(){
         var sut = new EventedClass();
 
