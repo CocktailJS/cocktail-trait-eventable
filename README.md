@@ -95,7 +95,16 @@ The following methods will be publicly available on the host class:
 ````
 
 - `on(eventName, handler)`: Idem `addListener` method.
+
+````javascript
+    myObj.on('event', function(){/*handler*/});
+````
+
 - `on(options)`: Idem `addListener` method.
+
+````javascript
+    myObj.on({event: myObj.onEvent, scope: myObj});
+````
 
 - `once(eventName, handler)`: Adds a one time event listener.
     - **eventName**: {String} the event name to be listened to.
