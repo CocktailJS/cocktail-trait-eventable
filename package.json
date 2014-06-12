@@ -1,6 +1,6 @@
 {
   "name": "cocktail-trait-eventable",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "EventEmitter as delegate trait",
   "main": "lib/Eventable",
   "scripts": {
