@@ -34,7 +34,9 @@ cocktail.mix({
 
     '@traits' : [Eventable],
 
-    _emitter : new EventEmitter(),
+    constructor: function() {
+        this._emitter = new EventEmitter();
+    },
 
     // glue code for Eventable Trait
     getEmitter: function() {
