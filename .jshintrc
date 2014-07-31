@@ -11,13 +11,14 @@
   "boss": true,
   "eqnull": true,
   "node": true,
-  "es5": true,
+  "scripturl": true,
+  "expr": true,
   "predef": [
-    "describe",         
-    "it",               
-    "before",           
-    "beforeEach",       
-    "after",            
-    "afterEach"         
+    "describe",
+    "it",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach"
   ]
 }
