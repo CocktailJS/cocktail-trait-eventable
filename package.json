@@ -1,6 +1,6 @@
 {
   "name": "cocktail-trait-eventable",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "EventEmitter as delegate trait",
   "main": "lib/Eventable",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "cocktail": "~0.5.1"
+    "cocktail": ""cocktail@>=0.5.1 <0.8.0""
   },
   "devDependencies": {
     "grunt-simple-mocha": "~0.4.0",
